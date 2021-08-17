@@ -17,8 +17,8 @@ mongoose.Query.prototype.cache = function(options = {}) {
 
 mongoose.Query.prototype.exec = async function() {
 
-    if(!useCache) {
-        return this.exec.apply(this, arguments);
+    if(!this.useCache) {
+        return await exec.apply(this, arguments);
     }
 
     const key = JSON.stringify(Object.assign({}, this.getQuery(), {
